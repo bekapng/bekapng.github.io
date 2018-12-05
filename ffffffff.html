@@ -1,0 +1,120 @@
+<html>
+<title>zametki</title>
+<head>
+<footer>
+<section>
+<div align="center"></div>
+<div class="header">
+<p><h3>ZAMETKY.kz</h3></p>
+</div>
+</section>
+</footer>
+</head>
+<body>
+<img src="12.jpg">
+<div id="mydiv">
+<h3>Заметка</h3>
+<form name="dwsForm">
+<label>День недели:</label>
+<select name="days">
+<option>Понедельник</option>
+<option>Вторник</option>
+<option>Среда</option>
+<option>Четверг</option>
+<option>Пятница</option>
+<option>Суббота</option>
+<option>Воскресенье</option>
+</select><br><br>
+<textarea rows="5" cols="45" name="message" placeholder="Напишите текст заметки..." ></textarea><br>
+
+<form oninput="result.value=(cm.value/2.54).toFixed(2)">
+<input type="button" value="Сохранить" onClick="prClick();">
+<output name="result"></output>
+</form>
+<a href="mailto:bigsamsa3@mail.ru"><input type="submit" value="Отправить" onClick="btnClick();"></a>
+</form>
+<br>
+<div id="diary"></div>
+</div>
+<script type="text/javascript">
+var day = "",
+text = "",
+i = 1,
+arrNotes = [],
+form = document.dwsForm;
+
+function btnClick() {
+day = form.days.value;
+text = form.message.value;
+
+arrNotes.push("<tr><td>" + i + "</td><td>Заметка на: " + day.bold() + "</td></tr>"
++ "<tr><td></td><td>" + text + "<hr></td></tr>");
+i++;
+form.reset();
+}
+
+function prClick() {
+document.getElementById('diary').innerHTML="<table>" + arrNotes.join('') + "</table>";
+}
+</script>
+<style media="screen">
+
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, sans-serif;
+  }
+
+  .dws-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+  #mydiv {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  width:30em;
+  height:25em;
+  margin-top: -10em;
+  margin-left: -18em;
+  border: 1px solid #ccc;
+  background-color: #F5DEB3;
+  }
+
+  body {
+  background-color: #F0E68C;
+
+  }
+
+  img {
+  width: 100%;
+  height: 90%;
+  }
+
+  footer {
+  height: 50px;
+
+  }
+
+  .header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+  }
+
+  p{
+  font-family: "Monotype Corsiva" Cursive;
+  }
+
+</style>
+
+
+<div id="footer">
+<div align="center">&copy; Beka.png</div>
+
+</div>
+</body>
+<html>
